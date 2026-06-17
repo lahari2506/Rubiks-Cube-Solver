@@ -1,21 +1,25 @@
 # Rubiks-Cube-Solver
+
 A Rubik's Cube Solver built in C++ using graph search and heuristic algorithms such as BFS, A*, and IDA*.
-<br>
-Building a Rubik's Cube Solver from scratch in C++ to explore algorithms, graph search, and problem solving.
-<br>
-#TECHSTACK:
-* C++
-* STL
-* Git & GitHub
-<br>
-#CONCEPTS USED:
-*Data Structures & Algorithms(GRAPH ALGORITHMS)
-*Graph Search
-*State Space Representation
-*Heuristic Search
-<br>
-#APPROACH:
-* Cube Representation
-* Move Simulation
-* Scramble Generator
-* Solver Implementation
+
+Building a Rubik's Cube Solver from scratch to explore algorithms, graph search, and problem solving.
+
+## Tech Stack
+- C++
+- STL
+- Git
+- GitHub
+
+## Concepts Used
+- Data Structures & Algorithms
+- Graph Algorithms
+- Graph Search
+- State Space Representation
+- Heuristic Search
+
+## Approach
+- Cube Representation
+- Move Simulation
+- Scramble Generator
+- Solver Implementation
+
