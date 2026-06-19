@@ -58,22 +58,22 @@ void Cube::U() {
     temp[1] = face[2][1];
     temp[2] = face[2][2];
 
-    // Front <- Left
+    // Front - Left
     face[2][0] = face[4][0];
     face[2][1] = face[4][1];
     face[2][2] = face[4][2];
 
-    // Left <- Back
+    // Left - Back
     face[4][0] = face[3][0];
     face[4][1] = face[3][1];
     face[4][2] = face[3][2];
 
-    // Back <- Right
+    // Back - Right
     face[3][0] = face[5][0];
     face[3][1] = face[5][1];
     face[3][2] = face[5][2];
 
-    // Right <- Front (saved)
+    // Right - Front (saved)
     face[5][0] = temp[0];
     face[5][1] = temp[1];
     face[5][2] = temp[2];
@@ -91,23 +91,97 @@ void Cube::U_prime() {
     temp[1] = face[2][1];
     temp[2] = face[2][2];
 
-    // Front <- Right
+    // Front - Right
     face[2][0] = face[5][0];
     face[2][1] = face[5][1];
     face[2][2] = face[5][2];
 
-    // Right <- Back
+    // Right - Back
     face[5][0] = face[3][0];
     face[5][1] = face[3][1];
     face[5][2] = face[3][2];
 
-    // Back <- Left
+    // Back - Left
     face[3][0] = face[4][0];
     face[3][1] = face[4][1];
     face[3][2] = face[4][2];
 
-    // Left <- Front
+    // Left - Front
     face[4][0] = temp[0];
     face[4][1] = temp[1];
     face[4][2] = temp[2];
+}
+void Cube::R() {
+    rotatefaceclockwise(face[5]);
+
+    char up[3], front[3], down[3];
+
+    // save top,bottom,front rotated stickers due to R move
+    up[0] = face[0][2];
+    up[1] = face[0][5];
+    up[2] = face[0][8];
+
+    front[0] = face[2][2];
+    front[1] = face[2][5];
+    front[2] = face[2][8];
+
+    down[0] = face[1][2];
+    down[1] = face[1][5];
+    down[2] = face[1][8];
+
+    face[0][2] = front[0];
+    face[0][5] = front[1];
+    face[0][8] = front[2];
+
+    face[2][2] = down[0];
+    face[2][5] = down[1];
+    face[2][8] = down[2];
+
+    face[1][2] = face[3][6];
+    face[1][5] = face[3][3];
+    face[1][8] = face[3][0];
+
+    face[3][6] = up[0];
+    face[3][3] = up[1];
+    face[3][0] = up[2];
+}
+void Cube::R_prime() {
+    rotatefaceclockwise(face[5]);
+    rotatefaceclockwise(face[5]);
+    rotatefaceclockwise(face[5]);
+
+char up[3], front[3], down[3], back[3];
+
+// save top,bottom,front rotated stickers due to R' move
+up[0] = face[0][2];
+up[1] = face[0][5];
+up[2] = face[0][8];
+
+front[0] = face[2][2];
+front[1] = face[2][5];
+front[2] = face[2][8];
+
+down[0] = face[1][2];
+down[1] = face[1][5];
+down[2] = face[1][8];
+
+back[0] = face[3][6];
+back[1] = face[3][3];
+back[2] = face[3][0];
+
+face[0][2] = back[0];
+    face[0][5] = back[1];
+    face[0][8] = back[2];
+
+    face[3][6] = down[0];
+    face[3][3] = down[1];
+    face[3][0] = down[2];
+
+    face[1][2] = front[0];
+    face[1][5] = front[1];
+    face[1][8] = front[2];
+
+    face[2][2] = up[0];
+    face[2][5] = up[1];
+    face[2][8] = up[2];
 }
