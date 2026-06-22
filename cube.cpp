@@ -185,3 +185,84 @@ face[0][2] = back[0];
     face[2][5] = up[1];
     face[2][8] = up[2];
 }
+void Cube::L() {
+    rotatefaceclockwise(face[4]);
+
+    char up[3], front[3], down[3];
+
+    // save left column of Up, Front, Down of rotated stickres due to L move
+    up[0] = face[0][0];
+    up[1] = face[0][3];
+    up[2] = face[0][6];
+
+    front[0] = face[2][0];
+    front[1] = face[2][3];
+    front[2] = face[2][6];
+
+    down[0] = face[1][0];
+    down[1] = face[1][3];
+    down[2] = face[1][6];
+
+    // U - Back
+    face[0][0] = face[3][8];
+    face[0][3] = face[3][5];
+    face[0][6] = face[3][2];
+
+    // Back - Down
+    face[3][8] = down[0];
+    face[3][5] = down[1];
+    face[3][2] = down[2];
+
+    // Down -Front
+    face[1][0] = front[0];
+    face[1][3] = front[1];
+    face[1][6] = front[2];
+
+    // Front -Up
+    face[2][0] = up[0];
+    face[2][3] = up[1];
+    face[2][6] = up[2];
+}
+void Cube::L_prime() {
+    rotatefaceclockwise(face[4]);
+    rotatefaceclockwise(face[4]);
+    rotatefaceclockwise(face[4]);
+
+    char up[3], front[3], down[3], back[3];
+
+    up[0] = face[0][0];
+    up[1] = face[0][3];
+    up[2] = face[0][6];
+
+    front[0] = face[2][0];
+    front[1] = face[2][3];
+    front[2] = face[2][6];
+
+    down[0] = face[1][0];
+    down[1] = face[1][3];
+    down[2] = face[1][6];
+
+    back[0] = face[3][8];
+    back[1] = face[3][5];
+    back[2] = face[3][2];
+
+    // U - Front
+    face[0][0] = front[0];
+    face[0][3] = front[1];
+    face[0][6] = front[2];
+
+    // Front - Down
+    face[2][0] = down[0];
+    face[2][3] = down[1];
+    face[2][6] = down[2];
+
+    // Down - Back
+    face[1][0] = back[0];
+    face[1][3] = back[1];
+    face[1][6] = back[2];
+
+    // Back - Up
+    face[3][8] = up[0];
+    face[3][5] = up[1];
+    face[3][2] = up[2];
+}
