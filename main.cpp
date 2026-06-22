@@ -35,6 +35,18 @@ Cube c3;
     c3.L_prime();
     cout << "\nAfter L' (should match initial):\n";
     c3.display();
+    //RESET CUBE:
+   Cube c4;
+//test F move:
+    cout<<"Initial cube for F test:\n";
+    c4.display();
+    c4.F();
+    cout<<"after F move\n";
+    c4.display();
+    c4.F_prime();
+    cout << "\nAfter F' (should match initial):\n";
+    c4.display();
+
 
     
 
