@@ -24,6 +24,18 @@ int main(){
     c2.R_prime();
     cout << "\nAfter R' (should match initial):\n";
     c2.display();
+//RESET CUBE:
+Cube c3;
+//test L move:
+       cout<<"Initial cube for L test:\n";
+    c3.display();
+    c3.L();
+    cout<<"after L move\n";
+    c3.display();
+    c3.L_prime();
+    cout << "\nAfter L' (should match initial):\n";
+    c3.display();
+
     
 
     return 0;
