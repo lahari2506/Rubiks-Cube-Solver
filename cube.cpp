@@ -190,7 +190,7 @@ void Cube::L() {
 
     char up[3], front[3], down[3];
 
-    // save left column of Up, Front, Down of rotated stickres due to L move
+    // save left column of Up, Front, Down of rotated stickers due to L move
     up[0] = face[0][0];
     up[1] = face[0][3];
     up[2] = face[0][6];
@@ -265,4 +265,78 @@ void Cube::L_prime() {
     face[3][8] = up[0];
     face[3][5] = up[1];
     face[3][2] = up[2];
+}
+void Cube::F() {
+    rotatefaceclockwise(face[2]);
+
+    char up[3];
+
+    // Save bottom row of Up of rotated stickers due to F move(CW)
+    up[0] = face[0][6];
+    up[1] = face[0][7];
+    up[2] = face[0][8];
+
+    // Up - Left
+    face[0][6] = face[4][8];
+    face[0][7] = face[4][5];
+    face[0][8] = face[4][2];
+
+    // Left - Down
+    face[4][8] = face[1][2];
+    face[4][5] = face[1][1];
+    face[4][2] = face[1][0];
+
+    // Down - Right
+    face[1][0] = face[5][6];
+    face[1][1] = face[5][3];
+    face[1][2] = face[5][0];
+
+    // Right - Up
+    face[5][0] = up[0];
+    face[5][3] = up[1];
+    face[5][6] = up[2];
+}
+void Cube::F_prime() {
+    rotatefaceclockwise(face[2]);
+    rotatefaceclockwise(face[2]);
+    rotatefaceclockwise(face[2]);
+
+    char up[3], left[3], down[3], right[3];
+
+    // Save affected stickers due to rotation caused by F' move
+    up[0] = face[0][6];
+    up[1] = face[0][7];
+    up[2] = face[0][8];
+
+    left[0] = face[4][8];
+    left[1] = face[4][5];
+    left[2] = face[4][2];
+
+    down[0] = face[1][0];
+    down[1] = face[1][1];
+    down[2] = face[1][2];
+
+    right[0] = face[5][0];
+    right[1] = face[5][3];
+    right[2] = face[5][6];
+
+    // Up - Right
+    face[0][6] = right[0];
+    face[0][7] = right[1];
+    face[0][8] = right[2];
+
+    // Right - Down
+    face[5][0] = down[2];
+    face[5][3] = down[1];
+    face[5][6] = down[0];
+
+    // Down - Left
+    face[1][0] = left[2];
+    face[1][1] = left[1];
+    face[1][2] = left[0];
+
+    // Left - Up
+    face[4][8] = up[0];
+    face[4][5] = up[1];
+    face[4][2] = up[2];
 }
